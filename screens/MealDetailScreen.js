@@ -16,7 +16,7 @@ function MealDetailScreen({ route, navigation }) {
   // const favoriteMealsCtx = useContext(FavoritesContext);
   const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
 
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
   const mealId = route.params.mealId;
 
@@ -28,18 +28,10 @@ function MealDetailScreen({ route, navigation }) {
   function changeFavoriteStatusHandler() {
     if (mealIsFavorite) {
       // favoriteMealsCtx.removeFavorite(mealId);
-      dispatch(
-        removefavorite({
-          id: mealId,
-        })
-      );
+      dispatch(removefavorite({ id: mealId }));
     } else {
       // favoriteMealsCtx.addFavorite(mealId);
-      dispatch(
-        addFavorite({
-          id: mealId,
-        })
-      );
+      dispatch(addFavorite({ id: mealId }));
     }
   }
 
